@@ -2,7 +2,7 @@
  * Redistribution of original or derived work requires permission of course staff.
  */
 package rules;
-
+//
 /**
  * RulesOf6005 represents the collaboration policy of 6.005 as described by the
  * general information on Stellar.
