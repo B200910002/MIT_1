@@ -31,7 +31,7 @@ public class TurtleGUI extends JFrame {
 
     private static final long serialVersionUID = 1L;
 
-    private static final Color CANVAS_BG_COLOR = Color.WHITE;
+    private static final Color CANVAS_BG_COLOR = Color.BLACK;
     private static final Map<PenColor, Color> PEN_COLORS = new EnumMap<>(PenColor.class);
     static {
         PEN_COLORS.put(PenColor.BLACK, Color.BLACK);
