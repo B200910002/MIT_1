@@ -16,16 +16,13 @@ public class TurtleSoup {
      * @param sideLength length of each side
      */
     public static void drawSquare(Turtle turtle, int sideLength) {
-    	try {
-    		turtle.forward(sideLength);
-    		turtle.turn(90);
-    		turtle.forward(sideLength);
-    		turtle.turn(90);
-    		turtle.forward(sideLength);
-    		turtle.turn(90);
-    		turtle.forward(sideLength);
-    		turtle.turn(90);
-    	}catch(RuntimeException e) {throw new RuntimeException("implement me!");}
+    		turtle.color(PenColor.YELLOW);
+    		int i = 0;
+    		while(i < 4) {
+    			turtle.forward(sideLength);
+        		turtle.turn(90);
+        		i++;
+    		}
     }
 
     /**
@@ -38,13 +35,10 @@ public class TurtleSoup {
      * @return angle in degrees, where 0 <= angle < 360
      */
     public static double calculateRegularPolygonAngle(int sides) {
-    	if(sides < 3)
-    		throw new RuntimeException("where sides must be > 2 !");
-    	else
+    	if(sides > 2)
     		return (double) pi_degree-(2.0*pi_degree / sides) ;
-//        try{
-//        	return 0;
-//        }catch(RuntimeException e){throw new RuntimeException("implement me!");}
+    	else
+    		throw new RuntimeException("where sides must be > 2 !");
     }
 
     /**
@@ -76,6 +70,7 @@ public class TurtleSoup {
      */
     public static void drawRegularPolygon(Turtle turtle, int sides, int sideLength) {
         try{
+        	
         	double angle = calculateRegularPolygonAngle(sides);
         	int calculateSides = calculatePolygonSidesFromAngle(angle);
         	for(int i = 0; i < calculateSides; i++) {
@@ -111,10 +106,6 @@ public class TurtleSoup {
     		if(turnAngle < 0)
     			turnAngle += 2*pi_degree;
     		return turnAngle;
-//    		throw new RuntimeException("degrees, where 0 <= angle < 360!");
-//        try{
-//        	return 0;
-//        }catch(RuntimeException e){throw new RuntimeException("implement me!");}
     }
 
     /**
@@ -155,32 +146,7 @@ public class TurtleSoup {
      * @param turtle the turtle context
      */
     public static void drawPersonalArt(Turtle turtle) {
-//    	turtle.turn(90);
-//    	turtle.forward(-150);
-//    	turtle.color(PenColor.GREEN);
-//    	drawRegularPolygon(turtle,30,10);
-//    	turtle.color(PenColor.RED);
-//    	drawRegularPolygon(turtle,10,10);
-//    	turtle.forward(300);
-//    	turtle.color(PenColor.GREEN);
-//    	drawRegularPolygon(turtle,30,10);
-//    	turtle.color(PenColor.RED);
-//    	drawRegularPolygon(turtle,10,10);
-    	
-//    	turtle.color(PenColor.GREEN);
-//    	for(int i=0;i<100;i++) {
-//    		drawRegularPolygon(turtle,6,100);
-//    		turtle.turn(1);
-//    		turtle.forward(2);
-//    	}
-    	
-//    	turtle.color(PenColor.GREEN);
-//    	for(int i=0;i<12;i++) {
-//    		drawRegularPolygon(turtle,30,10);
-//    		turtle.turn(30);
-//    		turtle.forward(10);
-//    	}
-    	
+    	//work of art
     	ArrayList<PenColor> colors = new ArrayList<PenColor>();
     	colors.add(PenColor.PINK);
     	colors.add(PenColor.YELLOW);
@@ -188,7 +154,6 @@ public class TurtleSoup {
     	colors.add(PenColor.PINK);
     	colors.add(PenColor.YELLOW);
     	colors.add(PenColor.RED);
-    	
     	turtle.turn(-90);
     	for(int i=0;i<6;i++) {
     		turtle.color(colors.get(i));
@@ -196,7 +161,42 @@ public class TurtleSoup {
     			drawRegularPolygon(turtle,30,j);
     		turtle.turn(2*pi_degree/6);
     	}
-    }
+	}
+    	
+//    	for(int i=0;i<36;i++) {
+//    		drawSquare(turtle, 100);
+//    		turtle.turn(10);
+//    	}
+    	
+//    	for(int i=0;i<36;i++) {
+//    		drawSquare(turtle, 10+i);
+//    		turtle.turn(10);
+//    	}
+    	
+    	
+    	//heading point
+//    	turtle.color(PenColor.PINK);
+//    	int x[] = {0,100,100,200,200};
+//    	int y[] = {0,0,100,100,100};
+//    	
+//    	ArrayList<Point> points = new ArrayList<Point>();
+//    	for(int i=0;i<x.length;i++)
+//    		points.add(new Point(x[i], y[i]));
+//    	
+//    	ArrayList<Integer> xCoords = new ArrayList<Integer>();
+//    	for(Point point: points)
+//    		xCoords.add((int)point.x());
+//    	
+//    	ArrayList<Integer> yCoords = new ArrayList<Integer>();
+//    	for(Point point: points)
+//    		yCoords.add((int)point.y());
+//    	
+//    	List<Double> heads =  calculateHeadings(xCoords, yCoords);
+//    	for(int i=0;i<heads.size();i++) {
+//    		turtle.turn(heads.get(i));
+//    		turtle.forward(100);
+//    	}
+//    }
 
     /**
      * Main method.
@@ -209,6 +209,7 @@ public class TurtleSoup {
         DrawableTurtle turtle = new DrawableTurtle();
 //        drawSquare(turtle,100);
 //        drawRegularPolygon(turtle, 9, 50);
+//        turtle.color(PenColor.YELLOW);
         drawPersonalArt(turtle);        
         
         // draw the window
