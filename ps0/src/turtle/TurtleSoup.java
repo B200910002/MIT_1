@@ -208,8 +208,8 @@ public class TurtleSoup {
     public static void main(String args[]) {
         DrawableTurtle turtle = new DrawableTurtle();
 //        drawSquare(turtle,100);
-//        drawRegularPolygon(turtle, 9, 50);
 //        turtle.color(PenColor.YELLOW);
+//        drawRegularPolygon(turtle, 9, 50);
         drawPersonalArt(turtle);        
         
         // draw the window
